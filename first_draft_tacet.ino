@@ -43,7 +43,6 @@ void setup() {
 
   //LED setup:
   pinMode(greenledPin,OUTPUT);
-  check(X_out);
 }
 
 void loop() {
@@ -77,16 +76,16 @@ void loop() {
   Serial.print("   Za= ");
   Serial.println(Z_out);
 
-  return X_out;
-
-}
-
-void check(float X_out) {
-  int i = 0;
-  while(X_out > 0.1){
-    Serial.print(i);
-    i++;
-    digitalWrite(redledPin, HIGH);
-    delay(1000);
+  if(X_out > 0.95){
+    digitalWrite(redledPin, LOW);
   }
+
+  if(X_out < -0.95) {
+    digitalWrite(redledPin, LOW);
+  }
+
+  else {
+    digitalWrite(redledPin, HIGH);
+  }
+
 }
