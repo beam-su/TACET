@@ -43,7 +43,6 @@ void setup() {
 
   //LED setup:
   pinMode(greenledPin,OUTPUT);
-  flash(10,flashtime);
 }
 
 void loop() {
@@ -89,13 +88,4 @@ void loop() {
     digitalWrite(redledPin, HIGH);
   }
 
-}
-
-void flash(int repeats, int time){
-  for(int i = 0; i < repeats; i++) {
-    digitalWrite(greenledPin, HIGH);
-    delay(time);
-    digitalWrite(greenledPin, LOW);
-    delay(time);
-  }
 }
